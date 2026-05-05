@@ -1,7 +1,7 @@
 # PlanBetter — Weather Dashboard
 
- **Live App:** [https://weather-app-ten-ruby-62.vercel.app]
-**GitHub:** [https://github.com/TrinayanMahato/weather_app]
+ Live App:[https://weather-app-ten-ruby-62.vercel.app]
+GitHub:[https://github.com/TrinayanMahato/weather_app]
 ---
 
  About
