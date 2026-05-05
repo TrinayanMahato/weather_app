@@ -1,34 +1,96 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PlanBetter — Weather Dashboard
 
-## Getting Started
+🌐 **Live App:** [https://weather-app-ten-ruby-62.vercel.app](https://weather-app-ten-ruby-62.vercel.app)
 
-First, run the development server:
+---
+
+## About
+
+**PlanBetter** is a real-time weather dashboard built with Next.js. Search any city to get current weather conditions, a 5-day forecast, humidity, wind speed, and UV index — with dynamic background effects that change based on the weather (rain animations, heat gradients).
+
+---
+
+## Features
+
+- 🔍 **City Search** with recent search history
+- 🌡️ **Current Weather** — temperature, feels like, condition
+- 📅 **5-Day Forecast**
+- 💧 **Metrics** — Humidity, Wind Speed, UV Index
+- 🌧️ **Dynamic Backgrounds** — animated rain drops for rainy cities, red gradient for hot cities (30°C+), deep red for extreme heat (35°C+)
+- 🔐 **Authentication** — Email/password sign-up and Google OAuth login
+- 🌙 **Dark Mode** toggle with persistent preference
+- 📱 **Responsive** — works on mobile and desktop
+- ⚡ **Weather Caching** — 1-hour localStorage cache to reduce API calls
+
+---
+
+## Tech Stack
+
+- **Frontend:** Next.js, React, Tailwind CSS
+- **Authentication:** NextAuth.js (Google OAuth + credentials)
+- **Database:** MongoDB + Mongoose
+- **Fonts & Icons:** Google Fonts (Outfit), Material Symbols
+- **Deployment:** Vercel
+
+---
+
+## Getting Started Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/<your-repo-name>.git
+cd <your-repo-name>
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Set up environment variables
+
+Create a `.env.local` file in the root of the project and add the following:
+
+```env
+# OpenWeatherMap API
+OPENWEATHER_API_KEY=your_openweathermap_api_key
+
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
+
+# NextAuth
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_nextauth_secret
+
+# Google OAuth
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+```
+
+> Get a free API key at [https://openweathermap.org/api](https://openweathermap.org/api)  
+> Get Google OAuth credentials at [https://console.cloud.google.com](https://console.cloud.google.com)
+
+### 4. Run the development server
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+---
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Deployment
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+This app is deployed on **Vercel**. To deploy your own:
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+1. Push your code to a public GitHub repository
+2. Import the repo on [https://vercel.com](https://vercel.com)
+3. Add all environment variables from `.env.local` in the Vercel project settings
+4. Set `NEXTAUTH_URL` to your Vercel production URL
+5. Add the Vercel callback URL to your Google OAuth credentials:
+   ```
+   https://your-app.vercel.app/api/auth/callback/google
+   ```

@@ -272,20 +272,7 @@ export default function HomePage() {
         </div>
       </main>
 
-      {/* Mobile Bottom Nav */}
-      <nav className="md:hidden fixed bottom-0 left-0 w-full z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-100 dark:border-slate-800 shadow-[0_-4px_20px_rgba(0,0,0,0.02)] flex justify-around items-center px-4 py-3 pb-5 transition-colors duration-300">
-        {[
-          { icon: 'cloud', label: 'Current', active: true },
-          { icon: 'calendar_view_week', label: 'Forecast', active: false },
-          { icon: 'bookmark', label: 'Saved', active: false },
-          { icon: 'settings', label: 'Settings', active: false },
-        ].map((item) => (
-          <div key={item.label} className={`flex flex-col items-center gap-1 cursor-pointer transition-colors ${item.active ? 'text-primary' : 'text-slate-400 hover:text-primary'}`}>
-            <span className="material-symbols-outlined">{item.icon}</span>
-            <span className="text-[11px] font-bold tracking-[0.05em] uppercase">{item.label}</span>
-          </div>
-        ))}
-      </nav>
+
     </>
   )
 }
