@@ -267,19 +267,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          {/* Weather Radar */}
-          <section className="mt-10">
-            <div className="bg-white/70 dark:bg-slate-800/70 backdrop-blur-md border border-white/50 dark:border-slate-700/50 rounded-2xl p-8 shadow-ambient h-64 relative overflow-hidden flex items-center justify-center text-center transition-colors duration-300">
-              <div className="absolute inset-0 opacity-[0.15] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px,#003ec7 1px,transparent 0)', backgroundSize: '24px 24px' }} />
-              <div className="relative z-10 flex flex-col items-center gap-3">
-                <div className="w-16 h-16 bg-primary-fixed dark:bg-slate-700 rounded-full flex items-center justify-center transition-colors duration-300">
-                  <span className="material-symbols-outlined text-primary dark:text-blue-400 text-[30px]">map</span>
-                </div>
-                <h3 className="text-2xl font-medium text-on-surface dark:text-white transition-colors duration-300">Weather Radar</h3>
-                <p className="text-base text-slate-500 dark:text-slate-400">View real-time precipitation and wind patterns</p>
-              </div>
-            </div>
-          </section>
+
 
         </div>
       </main>

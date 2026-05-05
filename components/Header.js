@@ -1,5 +1,6 @@
 import { useSession, signOut } from 'next-auth/react'
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 
 export default function Header({ onLoginClick }) {
   const { data: session, status } = useSession()
@@ -33,13 +34,13 @@ export default function Header({ onLoginClick }) {
       <div className="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto w-full">
 
         {/* Logo */}
-        <span className="text-xl font-bold tracking-tight text-primary dark:text-blue-400 cursor-pointer">PlanBetter</span>
+        <Link href="/" className="text-xl font-bold tracking-tight text-primary dark:text-blue-400 cursor-pointer">PlanBetter</Link>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-1 items-center">
-          <a href="#" className="text-primary dark:text-blue-400 font-semibold border border-primary dark:border-blue-400 px-3 py-1.5 rounded-lg text-base transition-colors">
+          <Link href="/" className="text-primary dark:text-blue-400 font-semibold border border-primary dark:border-blue-400 px-3 py-1.5 rounded-lg text-base transition-colors">
             Current
-          </a>
+          </Link>
 
           {/* Auth nav item — changes based on session state */}
           {!isLoading && (
