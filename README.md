@@ -1,11 +1,11 @@
 # PlanBetter — Weather Dashboard
 
- **Live App:** [https://weather-app-ten-ruby-62.vercel.app]
- 
-**GitHub:** [https://github.com/TrinayanMahato/weather_app]
+🌐 **Live App:** [https://weather-app-ten-ruby-62.vercel.app](https://weather-app-ten-ruby-62.vercel.app)
+📁 **GitHub:** [https://github.com/TrinayanMahato/weather_app](https://github.com/TrinayanMahato/weather_app)
+
 ---
 
- About
+## About
 
 **PlanBetter** is a real-time weather dashboard built with Next.js. Search any city to get current weather conditions, a 5-day forecast, humidity, wind speed, and UV index — with dynamic background effects that change based on the weather (rain animations, heat gradients).
 
