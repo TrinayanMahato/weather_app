@@ -92,13 +92,6 @@ export default function Header({ onLoginClick }) {
             </span>
           </button>
         </nav>
-
-
-
-        {/* Mobile hamburger */}
-        <div className="md:hidden text-on-surface cursor-pointer">
-          <span className="material-symbols-outlined">menu</span>
-        </div>
       </div>
     </header>
   )
