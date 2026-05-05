@@ -36,62 +36,65 @@ export default function Header({ onLoginClick }) {
         {/* Logo */}
         <Link href="/" className="text-xl font-bold tracking-tight text-primary dark:text-blue-400 cursor-pointer">PlanBetter</Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex gap-1 items-center">
-          <Link href="/" className="text-primary dark:text-blue-400 font-semibold border border-primary dark:border-blue-400 px-3 py-1.5 rounded-lg text-base transition-colors">
-            Current
-          </Link>
+        {/* Right side: desktop nav + always-visible theme toggle */}
+        <div className="flex items-center gap-1">
 
-          {/* Auth nav item — changes based on session state */}
-          {!isLoading && (
-            session ? (
-              // ── Logged in ─────────────────────────────────────────────────
-              <div className="flex items-center gap-2 ml-1">
-                {session.user?.image ? (
-                  <img
-                    src={session.user.image}
-                    alt={session.user.name ?? 'User'}
-                    className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 object-cover"
-                  />
-                ) : (
-                  <div className="w-8 h-8 rounded-full bg-primary dark:bg-blue-600 flex items-center justify-center text-white text-sm font-bold">
-                    {session.user?.name?.[0]?.toUpperCase() ?? 'U'}
-                  </div>
-                )}
-                <span className="text-sm font-medium text-on-surface dark:text-slate-200 max-w-[120px] truncate">
-                  {session.user?.name ?? session.user?.email}
-                </span>
-                <button
-                  id="signout-btn"
-                  onClick={() => signOut({ callbackUrl: '/' })}
-                  className="text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-500 dark:hover:text-red-400 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors border-none bg-transparent cursor-pointer"
+          {/* Desktop-only nav items */}
+          <nav className="hidden md:flex gap-1 items-center">
+            <Link href="/" className="text-primary dark:text-blue-400 font-semibold border border-primary dark:border-blue-400 px-3 py-1.5 rounded-lg text-base transition-colors">
+              Current
+            </Link>
+
+            {/* Auth nav item */}
+            {!isLoading && (
+              session ? (
+                <div className="flex items-center gap-2 ml-1">
+                  {session.user?.image ? (
+                    <img
+                      src={session.user.image}
+                      alt={session.user.name ?? 'User'}
+                      className="w-8 h-8 rounded-full border border-slate-200 dark:border-slate-700 object-cover"
+                    />
+                  ) : (
+                    <div className="w-8 h-8 rounded-full bg-primary dark:bg-blue-600 flex items-center justify-center text-white text-sm font-bold">
+                      {session.user?.name?.[0]?.toUpperCase() ?? 'U'}
+                    </div>
+                  )}
+                  <span className="text-sm font-medium text-on-surface dark:text-slate-200 max-w-[120px] truncate">
+                    {session.user?.name ?? session.user?.email}
+                  </span>
+                  <button
+                    id="signout-btn"
+                    onClick={() => signOut({ callbackUrl: '/' })}
+                    className="text-slate-500 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-500/10 hover:text-red-500 dark:hover:text-red-400 px-3 py-1.5 rounded-lg text-sm font-semibold transition-colors border-none bg-transparent cursor-pointer"
+                  >
+                    Sign out
+                  </button>
+                </div>
+              ) : (
+                <a
+                  href="#"
+                  className="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-on-surface dark:hover:text-slate-200 px-3 py-1.5 rounded-lg text-base transition-colors"
+                  onClick={(e) => { e.preventDefault(); onLoginClick?.() }}
                 >
-                  Sign out
-                </button>
-              </div>
-            ) : (
-              // ── Logged out ────────────────────────────────────────────────
-              <a
-                href="#"
-                className="text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-on-surface dark:hover:text-slate-200 px-3 py-1.5 rounded-lg text-base transition-colors"
-                onClick={(e) => { e.preventDefault(); onLoginClick?.() }}
-              >
-                Login/Sign up
-              </a>
-            )
-          )}
+                  Login/Sign up
+                </a>
+              )
+            )}
+          </nav>
 
-          {/* Theme Toggle Button */}
+          {/* Theme Toggle — always visible on ALL screen sizes */}
           <button
             onClick={toggleTheme}
-            className="ml-3 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer border-none bg-transparent flex items-center justify-center text-slate-500 dark:text-slate-400"
+            className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer border-none bg-transparent flex items-center justify-center text-slate-500 dark:text-slate-400"
             aria-label="Toggle Dark Mode"
           >
             <span className="material-symbols-outlined text-[22px]">
               {isDark ? 'light_mode' : 'dark_mode'}
             </span>
           </button>
-        </nav>
+
+        </div>
       </div>
     </header>
   )
