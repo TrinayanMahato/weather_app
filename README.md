@@ -1,10 +1,10 @@
 # PlanBetter — Weather Dashboard
 
-🌐 **Live App:** [https://weather-app-ten-ruby-62.vercel.app](https://weather-app-ten-ruby-62.vercel.app)
-
+ **Live App:** [https://weather-app-ten-ruby-62.vercel.app]
+**GitHub:** [https://github.com/TrinayanMahato/weather_app]
 ---
 
-## About
+ About
 
 **PlanBetter** is a real-time weather dashboard built with Next.js. Search any city to get current weather conditions, a 5-day forecast, humidity, wind speed, and UV index — with dynamic background effects that change based on the weather (rain animations, heat gradients).
 
@@ -34,13 +34,52 @@
 
 ---
 
+## Folder Structure
+
+```
+weather_app/
+├── components/
+│   ├── ForecastCard.js       # 5-day forecast card UI
+│   ├── Header.js             # Top navigation bar with dark mode toggle
+│   ├── HomePage.js           # Main page layout & dynamic weather background
+│   ├── LoginAlert.js         # Auth modal (email/password + Google OAuth)
+│   ├── MetricCard.js         # Humidity, Wind Speed, UV Index cards
+│   ├── SearchBar.js          # City search input with recent search history
+│   └── WeatherCard.js        # Main current weather display card
+├── lib/
+│   └── mongoose.js           # MongoDB connection (cached for hot reloads)
+├── models/
+│   └── User.js               # Mongoose User schema
+├── pages/
+│   ├── api/
+│   │   ├── auth/
+│   │   │   ├── [...nextauth].js  # NextAuth config (Google + credentials)
+│   │   │   └── signup.js         # Email/password sign-up API route
+│   │   └── weather.js            # Weather API route (OpenWeatherMap)
+│   ├── _app.js               # Global app wrapper (SessionProvider)
+│   ├── _document.js          # HTML shell (fonts, icons, body styles)
+│   └── index.js              # Root route → renders HomePage
+├── public/
+│   └── favicon.ico
+├── styles/
+│   └── globals.css           # Global Tailwind base styles
+├── utils/
+│   └── weatherCache.js       # localStorage cache helpers (1-hour TTL)
+├── .env.local                # Environment variables (not committed)
+├── next.config.js
+├── tailwind.config.js
+└── package.json
+```
+
+---
+
 ## Getting Started Locally
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/<your-username>/<your-repo-name>.git
-cd <your-repo-name>
+git clone https://github.com/TrinayanMahato/weather_app.git
+cd weather_app
 ```
 
 ### 2. Install dependencies
@@ -92,5 +131,5 @@ This app is deployed on **Vercel**. To deploy your own:
 4. Set `NEXTAUTH_URL` to your Vercel production URL
 5. Add the Vercel callback URL to your Google OAuth credentials:
    ```
-   https://your-app.vercel.app/api/auth/callback/google
+   https://weather-app-ten-ruby-62.vercel.app/api/auth/callback/google
    ```

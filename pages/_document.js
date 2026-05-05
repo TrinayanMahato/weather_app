@@ -15,7 +15,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="bg-[#e4e8f3] dark:bg-slate-950 antialiased transition-colors duration-300">
+      <body className="bg-[#b8c2d8] dark:bg-slate-950 antialiased transition-colors duration-300">
         <Main />
         <NextScript />
       </body>
